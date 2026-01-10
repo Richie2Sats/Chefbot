@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
 body {
-    background-color: #f4f4f9;
-    color: #333;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1556910103-1c02745a30bf?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #4a3b2a;
+    font-family: 'Lora', serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,43 +16,48 @@ body {
 
 .chat-container {
     width: 100%;
-    max-width: 500px;
+    max-width: 550px;
     height: 85vh;
-    background-color: #ffffff;
-    border-radius: 20px;
+    background-color: rgba(255, 253, 245, 0.95);
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    border: 1px solid #e0e0e0;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3), 0 0 0 8px rgba(139, 69, 19, 0.2);
+    border: 1px solid #d4c5b0;
     overflow: hidden;
 }
 
 .header {
-    padding: 15px 20px;
-    background-color: #ff9f43;
-    color: white;
+    padding: 20px;
+    background-color: #a83f39;
+    color: #fffaf0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 4px solid #8b2e2a;
 }
 
 .header h2 {
     margin: 0;
-    font-size: 1.2rem;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
 }
 
 .clear-btn {
     background-color: rgba(255,255,255,0.2);
     border: 1px solid rgba(255,255,255,0.4);
     color: white;
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 0.8rem;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
     cursor: pointer;
+    font-family: 'Lora', serif;
+    transition: background 0.3s;
 }
 
 .clear-btn:hover {
-    background-color: rgba(255,255,255,0.3);
+    background-color: rgba(255,255,255,0.4);
 }
 
 .chat-history {
@@ -55,73 +65,80 @@ body {
     padding: 20px;
     overflow-y: auto;
     display: flex;
-    column-gap: 15px;
-    background-color: #fafafa;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #fffaf0;
 }
 
 .message {
     max-width: 80%;
-    padding: 12px 16px;
-    border-radius: 18px;
-    font-size: 0.95rem;
+    padding: 15px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
     line-height: 1.5;
     position: relative;
-    display: flex;
-    flex-direction: column;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .user {
     align-self: flex-end;
-    background-color: #333;
-    color: white;
-    border-bottom-right-radius: 4px;
+    background-color: #5d4037;
+    color: #fffaf0;
+    border-bottom-right-radius: 5px;
+    font-family: 'Lora', serif;
 }
 
 .assistant {
     align-self: flex-start;
     background-color: #fff;
-    color: #333;
-    border: 1px solid #eee;
-    border-bottom-left-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    color: #4a3b2a;
+    border: 1px solid #e0d0b0;
+    border-bottom-left-radius: 5px;
+    font-family: 'Lora', serif;
 }
 
 .input-area {
-    padding: 15px;
-    background-color: #fff;
-    border-top: 1px solid #eee;
+    padding: 20px;
+    background-color: #fffaf0;
+    border-top: 1px solid #e0d0b0;
     display: flex;
-    gap: 10px;
+    gap: 12px;
 }
 
 input {
     flex: 1;
-    padding: 12px;
+    padding: 15px;
     border-radius: 25px;
-    border: 1px solid #ddd;
-    background-color: #f9f9f9;
-    color: #333;
+    border: 2px solid #d4c5b0;
+    background-color: #ffffff;
+    color: #4a3b2a;
     outline: none;
-    transition: border-color 0.2s;
+    font-family: 'Lora', serif;
+    transition: border-color 0.3s;
 }
 
 input:focus {
-    border-color: #ff9f43;
+    border-color: #a83f39;
 }
 
 button {
-    padding: 0 25px;
-    background-color: #ff9f43;
+    padding: 0 30px;
+    background-color: #a83f39;
     color: white;
     border: none;
     border-radius: 25px;
     cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.2s;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.2rem;
+    transition: background-color 0.3s, transform 0.1s;
 }
 
 button:hover {
-    background-color: #e58e3c;
+    background-color: #8b2e2a;
+}
+
+button:active {
+    transform: scale(0.98);
 }
 
 button:disabled {
