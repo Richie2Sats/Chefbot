@@ -1,4 +1,4 @@
-const apiKey = 'YOUR_VENICE_API_KEY_HERE'; // <--- PASTE KEY HERE
+const apiKey = 'VENICE-INFERENCE-KEY-Ef0MBBr2N9lwxzlXQT8LNS-q134y9ZgHFGYsvVl06i'; // <--- PASTE KEY HERE
 const apiUrl = 'https://api.venice.ai/api/v1/chat/completions';
 
 const chatInput = document.getElementById('chatInput');
