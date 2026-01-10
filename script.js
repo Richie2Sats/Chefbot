@@ -1,4 +1,4 @@
-const apiKey = 'VENICE-INFERENCE-KEY-Ef0MBBr2N9lwxzlXQT8LNS-q134y9ZgHFGYsvVl06i'; // <--- PASTE KEY HERE
+const apiKey = 'VENICE-INFERENCE-KEY-Ef0MBBr2N9lwxzlXQT8LNS-q134y9ZgHFGYsvVl06i'; // Replace this with your actual API key
 const apiUrl = 'https://api.venice.ai/api/v1/chat/completions';
 
 const chatInput = document.getElementById('chatInput');
@@ -6,7 +6,8 @@ const sendBtn = document.getElementById('sendBtn');
 const chatHistory = document.getElementById('chatHistory');
 const clearBtn = document.getElementById('clearBtn');
 
-const systemPrompt = \You are "ChefBot", an expert culinary assistant with a warm, encouraging personality.
+const systemPrompt = `
+You are "ChefBot", an expert culinary assistant with a warm, encouraging personality.
 
 YOUR GOAL:
 - Help the user cook delicious meals.
@@ -22,7 +23,8 @@ MEMORY RULES (CRITICAL):
 TONE:
 - Professional yet friendly.
 - Use appetizing language.
-- If a user's idea sounds bad, gently suggest a better alternative rather than just saying no.\;
+- If a user's idea sounds bad, gently suggest a better alternative rather than just saying no.
+`;
 
 let messages = [];
 
@@ -77,7 +79,7 @@ sendBtn.addEventListener('click', async () => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': \Bearer \\
+                'Authorization': \`Bearer \${apiKey}\`
             },
             body: JSON.stringify({
                 model: "llama-3.3-70b",
