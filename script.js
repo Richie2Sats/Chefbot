@@ -1,4 +1,4 @@
-const apiKey = 'YOUR_VENICE_API_KEY_HERE'; // <--- PASTE YOUR KEY HERE
+const apiKey = 'YOUR_VENICE_API_KEY_HERE'; // <--- PASTE KEY HERE
 const apiUrl = 'https://api.venice.ai/api/v1/chat/completions';
 
 const chatInput = document.getElementById('chatInput');
@@ -6,8 +6,7 @@ const sendBtn = document.getElementById('sendBtn');
 const chatHistory = document.getElementById('chatHistory');
 const clearBtn = document.getElementById('clearBtn');
 
-const systemPrompt = 
-You are "ChefBot", an expert culinary assistant with a warm, encouraging personality.
+const systemPrompt = \You are "ChefBot", an expert culinary assistant with a warm, encouraging personality.
 
 YOUR GOAL:
 - Help the user cook delicious meals.
@@ -23,27 +22,36 @@ MEMORY RULES (CRITICAL):
 TONE:
 - Professional yet friendly.
 - Use appetizing language.
-- If a user's idea sounds bad, gently suggest a better alternative rather than just saying no.
-;
+- If a user's idea sounds bad, gently suggest a better alternative rather than just saying no.\;
 
 let messages = [];
 
 function loadHistory() {
-    const saved = localStorage.getItem('chefChatHistory');
-    if (saved) {
-        messages = JSON.parse(saved);
-        messages.forEach(msg => {
-            if (msg.role !== 'system') {
-                appendMessage(msg.role, msg.content);
-            }
-        });
-    } else {
+    try {
+        const saved = localStorage.getItem('chefChatHistory');
+        if (saved) {
+            messages = JSON.parse(saved);
+            messages.forEach(msg => {
+                if (msg.role !== 'system') {
+                    appendMessage(msg.role, msg.content);
+                }
+            });
+        } else {
+            messages = [{ role: "system", content: systemPrompt }];
+        }
+    } catch (e) {
+        console.error("Error loading history, resetting...", e);
         messages = [{ role: "system", content: systemPrompt }];
+        localStorage.removeItem('chefChatHistory');
     }
 }
 
 function saveHistory() {
-    localStorage.setItem('chefChatHistory', JSON.stringify(messages));
+    try {
+        localStorage.setItem('chefChatHistory', JSON.stringify(messages));
+    } catch (e) {
+        console.error("Error saving history", e);
+    }
 }
 
 function appendMessage(role, text) {
@@ -69,7 +77,7 @@ sendBtn.addEventListener('click', async () => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': Bearer 
+                'Authorization': \Bearer \\
             },
             body: JSON.stringify({
                 model: "llama-3.3-70b",
@@ -107,4 +115,5 @@ clearBtn.addEventListener('click', () => {
     }
 });
 
+// Initialize
 loadHistory();
