@@ -1,4 +1,4 @@
-const apiKey = 'VENICE-INFERENCE-KEY-oeAmO52UGUGr9dM3jWO_1jh8kOwqskiMnWjaElng2Z; // Replace this with your actual API key
+const apiKey = 'VENICE-INFERENCE-KEY-oeAmO52UGUGr9dM3jWO_1jh8kOwqskiMnWjaElng2Z;' // Replace this with your actual API key
 const apiUrl = 'https://api.venice.ai/api/v1/chat/completions';
 
 const chatInput = document.getElementById('chatInput');
